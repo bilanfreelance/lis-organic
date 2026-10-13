@@ -1,0 +1,634 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ліс Маневиччини · Органіка</title>
+<meta name="description" content="Третя версія лендінгу: світлі заокруглені картки, моховий акцент, двотонні заголовки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: organic product showcase — light grey stage, big rounded cards alternating white/black, two-tone bold headlines, capsule shapes, moss palette */
+:root{
+  --stage:#ECECEA;      /* світле тло */
+  --card:#FFFFFF;
+  --ink:#0C0C0B;        /* чорний */
+  --coal:#171716;       /* темні картки */
+  --gray:#9B9B97;       /* друга половина заголовка */
+  --line:rgba(12,12,11,.1);
+  --moss:#BCC388;       /* світлий мох */
+  --forest:#43511C;     /* темна хвоя */
+  --alarm:#E5483A;
+  --r:40px; --r-sm:24px;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1360px; --gut:clamp(12px,1.6vw,24px);
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--ink);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:8px}
+h1,h2,h3{margin:0;text-wrap:balance}
+.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:var(--wrap);margin:0 auto}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* two-tone headline */
+.tt{font-weight:600;letter-spacing:-.045em;line-height:1}
+.tt .g{color:var(--gray)}
+.on-dark .tt .g,.dark .tt .g{color:#7A7A76}
+.h2{font-size:clamp(34px,4.6vw,68px)}
+.mini{font-size:12px;font-weight:500;line-height:1.25}
+.pill-tag{display:inline-flex;align-items:center;min-height:30px;padding:0 14px;border-radius:999px;background:var(--stage);font-size:13px;color:#5D5D58}
+.dark .pill-tag{background:#262624;color:#B7B7B1}
+.lead{margin:0;font-size:17px;color:#55554F;max-width:440px}
+.dark .lead{color:#A6A6A0}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:22px;min-height:60px;padding:6px 6px 6px 26px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;cursor:pointer;border:0;transition:gap .4s var(--ease)}
+.cta .arr{width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;transition:transform .5s var(--ease)}
+.cta:hover{gap:30px}.cta:hover .arr{transform:rotate(-45deg)}
+.cta.light{background:#fff;color:var(--ink)}.cta.light .arr{background:var(--ink);color:#fff}
+.cta.moss{background:var(--moss);color:var(--ink)}.cta.moss .arr{background:var(--ink);color:var(--moss)}
+.plus{width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;border:0;cursor:pointer;flex:none;transition:transform .4s var(--ease)}
+.plus:hover{transform:rotate(90deg)}
+.icon-btn{width:40px;height:40px;border-radius:12px;background:var(--stage);display:grid;place-items:center;border:0;cursor:pointer}
+
+/* blocks */
+.block{border-radius:var(--r);overflow:hidden;position:relative}
+.light{background:var(--card)}
+.grey{background:var(--stage)}
+.dark{background:var(--coal);color:#F2F2EE}
+.stack{display:flex;flex-direction:column;gap:var(--gut);padding:var(--gut)}
+.row{display:grid;gap:var(--gut)}
+.pad{padding:clamp(28px,4vw,64px)}
+.caption{display:flex;justify-content:space-between;gap:12px;padding:6px 14px 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8E8E88}
+
+/* NAV (inside hero) */
+.topbar{display:flex;align-items:center;gap:24px;position:relative;z-index:5}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.03em;font-size:17px}
+.links{display:flex;gap:26px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#77776F}
+.links a:hover{color:var(--ink)}
+.tools{margin-left:auto;display:flex;gap:6px;align-items:center}
+.search{display:flex;align-items:center;justify-content:space-between;gap:30px;height:40px;padding:0 6px 0 16px;border-radius:12px;background:var(--stage);font-size:13px;color:#8E8E88}
+@media (max-width:900px){.links,.search{display:none}}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--ink);border-radius:var(--r);min-height:calc(100svh - 2*var(--gut));position:relative}
+.hero .half{background:var(--stage);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;position:relative;min-height:560px}
+.hero h1{font-size:clamp(40px,4.6vw,76px);margin-top:auto;max-width:min(470px,31vw);position:relative;z-index:6}
+.hero .cta{margin-top:30px;align-self:flex-start}
+.socials{display:flex;flex-direction:column;gap:6px;margin-top:48px}
+.socials span{width:34px;height:34px;border-radius:10px;background:#fff;display:grid;place-items:center}
+.capsule{position:absolute;left:50%;top:50%;width:min(21vw,300px);aspect-ratio:1/1.9;transform:translate(-50%,-50%) rotate(-14deg);z-index:4;border-radius:999px;overflow:hidden;box-shadow:0 60px 80px -30px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.25)}
+.capsule img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+.capsule::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(100deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 22%,rgba(255,255,255,0) 70%,rgba(255,255,255,.18) 86%,rgba(0,0,0,.25) 100%)}
+.capsule .lbl{position:absolute;left:0;right:0;top:52%;text-align:center;color:#fff;z-index:2;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.capsule .lbl small{display:block;font-size:12px;opacity:.85}
+.capsule .lbl b{display:block;font-size:clamp(18px,1.8vw,26px);font-weight:500;letter-spacing:-.02em}
+.thumbs{position:absolute;right:26px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:5}
+.thumb{width:96px;background:#fff;border-radius:18px;padding:8px 8px 0;display:flex;flex-direction:column;align-items:center}
+.thumb img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.thumb .plus{transform:translateY(50%);border:3px solid var(--stage);width:34px;height:34px}
+.thumb small{font-size:11px;font-weight:600;margin-top:6px}
+.hero .right p{margin:auto 0 0 auto;max-width:330px;font-size:16px;font-weight:500;line-height:1.35}
+.hero .right .mini{margin-left:auto;max-width:330px;width:100%;color:#8E8E88;margin-bottom:8px}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero .half{min-height:auto}
+  .hero .left{min-height:min(760px,calc(100svh - 20px));padding-bottom:30px}
+  .capsule{top:84px;width:min(40vw,230px);transform:translate(-50%,0) rotate(-14deg)}
+  .hero h1{max-width:none}
+  .hero .right{min-height:300px}
+  .thumbs{position:static;transform:none;flex-direction:row;margin-bottom:26px}
+  .thumb{width:84px}
+  .socials{display:none}
+}
+
+/* ABOUT (black) */
+.about{text-align:center}
+.mark{margin:0 auto 22px;width:30px;height:38px}
+.about h2{max-width:780px;margin:0 auto}
+.about .lead{margin:18px auto 0;font-size:15px}
+.about-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:center;margin-top:56px}
+.stats{display:flex;flex-direction:column;gap:36px}
+.stats.r{text-align:right}
+.stat b{display:block;font-size:clamp(26px,2.6vw,38px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.stat small{display:block;margin-top:6px;font-size:13px;color:#8C8C86}
+.stat::after{content:"";display:block;width:40px;height:1px;background:#3A3A37;margin-top:18px}
+.stats.r .stat::after{margin-left:auto}
+.circles{display:flex}
+.circles span{width:clamp(80px,9vw,128px);aspect-ratio:1;border-radius:50%;overflow:hidden;margin-left:-14px;border:4px solid var(--coal);position:relative}
+.circles span:first-child{margin-left:0}
+.circles span.moss{background:var(--moss);display:grid;place-items:center}
+@media (max-width:820px){.about-grid{grid-template-columns:1fr 1fr}.circles{grid-column:1/-1;order:-1;justify-content:center}.stats.r{text-align:left}.stats.r .stat::after{margin-left:0}}
+
+/* COUNTER (app-like) */
+.counter{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--gut)}
+.phone{background:var(--ink);color:#F2F2EE;border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;min-height:620px}
+.phone .hello{font-size:14px;color:#8C8C86}
+.phone .name{font-size:clamp(34px,3.6vw,52px);font-weight:600;letter-spacing:-.045em;line-height:1}
+.big-count{display:flex;align-items:baseline;gap:10px;margin-top:6px}
+.big-count b{font-size:clamp(80px,10vw,150px);font-weight:600;letter-spacing:-.07em;line-height:.85}
+.big-count span{font-size:22px;color:var(--moss);font-weight:500}
+.big-count small{display:block;font-size:13px;color:#8C8C86}
+.next{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:999px;background:#1F1F1D;position:relative;overflow:hidden}
+.next .fill{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,#2B3415,#43511C);transition:width .5s linear;z-index:0}
+.next > *:not(.fill){position:relative;z-index:1}
+.next small{display:block;font-size:12px;color:var(--moss)}
+.next b{font-size:20px;font-weight:600;letter-spacing:-.03em}
+.next .ring{margin-left:auto;width:54px;height:54px;flex:none}
+.list{margin-top:auto}
+.list h4{margin:0 0 8px;font-size:14px;font-weight:600}
+.li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid #2A2A28}
+.li b{display:block;font-size:20px;font-weight:600;letter-spacing:-.03em}
+.li small{font-size:12px;color:#8C8C86}
+.li.done b{color:#6C6C67}
+.badge{font-size:11px;padding:5px 10px;border-radius:999px;background:#2A2A28;color:#B7B7B1}
+.badge.red{background:rgba(229,72,58,.16);color:#FF7D70}
+.side{display:grid;grid-template-rows:auto 1fr;gap:var(--gut)}
+.side .light{padding:30px;display:flex;flex-direction:column;gap:14px}
+.mbars .mb{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#77776F;margin-top:12px}
+.mbars i{grid-column:1/-1;height:4px;border-radius:4px;background:var(--stage);position:relative;overflow:hidden}
+.mbars i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--ink);border-radius:4px}
+.photo-card{min-height:300px}
+.photo-card .float{position:absolute;left:20px;bottom:20px;right:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 14px 22px;border-radius:999px;background:rgba(15,15,14,.78);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.photo-card .float small{display:block;font-size:11px;color:var(--moss)}
+.photo-card .float b{font-weight:600;letter-spacing:-.02em}
+@media (max-width:900px){.counter{grid-template-columns:1fr}.phone{min-height:auto}}
+
+/* PROBLEM */
+.problem{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--gut)}
+.problem .photo{min-height:520px}
+.problem .txt{padding:30px;display:flex;flex-direction:column;justify-content:space-between;min-height:520px}
+.problem .txt h3{font-size:clamp(22px,2vw,30px);font-weight:500;letter-spacing:-.035em;line-height:1.12}
+.problem .txt h3 .g{color:var(--gray)}
+.problem .txt .num{font-size:clamp(46px,4.6vw,72px);font-weight:600;letter-spacing:-.06em;line-height:1}
+@media (max-width:980px){.problem{grid-template-columns:1fr 1fr}.problem .photo{grid-column:1/-1;min-height:380px}.problem .txt{min-height:360px}}
+@media (max-width:600px){.problem{grid-template-columns:1fr}}
+
+/* palette pill bar (forest structure) */
+.fund{padding:clamp(28px,4vw,56px);text-align:center}
+.fund h2{max-width:760px;margin:0 auto}
+.pillbar{display:flex;height:96px;border-radius:999px;margin:44px auto 0;max-width:1000px;background:var(--ink);border:1px solid #333;position:relative}
+.pillbar > div{border-radius:999px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 30px;text-align:left;font-size:13px;font-weight:600;line-height:1.25;white-space:nowrap;position:relative;min-width:0}
+.pillbar small{font-weight:400;opacity:.75}
+.pb-1{background:#fff;color:var(--ink);width:14%;z-index:3}
+.pb-2{background:var(--moss);color:var(--ink);width:22%;margin-left:-60px;padding-left:80px!important;z-index:2}
+.pb-3{background:var(--forest);color:#fff;flex:1;margin-left:-60px;padding-left:80px!important;z-index:1}
+.fund .mini{margin-top:18px;color:#8C8C86}
+@media (max-width:700px){
+  .pillbar{flex-direction:column;height:auto;border-radius:32px;padding:6px;gap:6px}
+  .pillbar > div{width:auto!important;margin:0!important;padding:16px 22px!important;border-radius:26px}
+}
+
+/* BOGS banner */
+.banner{position:relative;min-height:min(80vh,720px);border-radius:var(--r);overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,4vw,56px)}
+.banner::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.75));z-index:1}
+.banner > *:not(img){position:relative;z-index:2}
+.banner h2{max-width:720px}
+.banner .tt .g{color:rgba(255,255,255,.55)}
+.bubbles{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.bub{flex:1 1 220px;padding:22px 24px;border-radius:28px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.bub small{font-size:12px;color:var(--moss)}
+.bub b{display:block;margin-top:4px;font-size:20px;font-weight:600;letter-spacing:-.03em}
+.bub p{margin:6px 0 0;font-size:14px;color:rgba(255,255,255,.8)}
+
+/* WHY: glass circles over photo */
+.why{text-align:center;padding:clamp(36px,5vw,72px) clamp(16px,3vw,40px) 0;overflow:hidden}
+.why .lead{margin:16px auto 0;font-size:15px}
+.why-stage{position:relative;margin-top:40px;min-height:520px;border-radius:var(--r) var(--r) 0 0;overflow:hidden}
+.why-stage img{filter:saturate(.95)}
+.orbs{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;gap:clamp(8px,2vw,28px);padding:20px}
+.orb{width:clamp(150px,19vw,250px);aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px;text-align:center;background:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.orb:nth-child(2){border-radius:999px;aspect-ratio:1/1.35;transform:translateY(40px)}
+.orb small{font-size:11px;color:#3F3F3B}
+.orb b{font-size:clamp(17px,1.7vw,24px);font-weight:500;letter-spacing:-.03em;line-height:1.1;margin-top:4px}
+.orb p{margin:8px 0 0;font-size:12px;line-height:1.35;color:#2E2E2A}
+@media (max-width:700px){.why-stage{min-height:auto}.orbs{position:relative;flex-direction:column;padding:30px 16px}.orb,.orb:nth-child(2){width:min(80vw,280px);aspect-ratio:auto;border-radius:32px;transform:none;padding:26px}}
+
+/* TREES shop-like */
+.trees-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{min-height:40px;padding:0 16px;border-radius:999px;border:0;background:var(--stage);font-size:13px;font-weight:500;cursor:pointer;transition:.3s}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:var(--gut);margin-top:30px}
+.dimg{position:relative;min-height:560px;border-radius:var(--r-sm);overflow:hidden;background:var(--stage)}
+.dimg .back{position:absolute;left:18px;top:18px;z-index:2;width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;border:0;cursor:pointer}
+.dimg .count{position:absolute;right:18px;top:18px;z-index:2;padding:8px 14px;border-radius:999px;background:#fff;font-size:12px;font-weight:600}
+.dinfo{display:flex;flex-direction:column;padding:10px 6px}
+.dinfo .cat{font-size:13px;color:#77776F}
+.dinfo h3{font-size:clamp(36px,4vw,60px);font-weight:600;letter-spacing:-.05em;line-height:1;margin-top:6px}
+.dinfo .lat{font-style:italic;color:var(--gray);margin-top:6px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.spec{padding:18px 20px;border-radius:20px;background:var(--stage)}
+.spec small{font-size:12px;color:#77776F}
+.spec b{display:block;font-size:22px;font-weight:600;letter-spacing:-.03em;margin-top:2px}
+.dinfo p{margin:22px 0 0;font-size:16px;color:#3A3A35}
+.dinfo .role{margin-top:14px;display:inline-flex;align-self:flex-start;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--moss);font-size:13px;font-weight:500}
+.dnav{display:flex;gap:10px;margin-top:auto;padding-top:24px}
+.tcards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:var(--gut)}
+.tc{background:var(--stage);border-radius:22px;padding:8px 8px 14px;cursor:pointer;border:2px solid transparent;text-align:left;transition:border-color .3s}
+.tc[aria-pressed="true"]{border-color:var(--ink)}
+.tc img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px}
+.tc .r{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:0 6px}
+.tc small{display:block;font-size:11px;color:#77776F}
+.tc b{font-size:15px;font-weight:600;letter-spacing:-.02em}
+@media (max-width:900px){.detail{grid-template-columns:1fr}.dimg{min-height:380px}.tcards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.tcards{grid-template-columns:repeat(2,minmax(0,1fr))}.specs{grid-template-columns:1fr 1fr}.spec b{font-size:18px}}
+
+/* ANIMALS: round avatars */
+.animals{display:grid;grid-template-columns:1fr 1.25fr;gap:var(--gut)}
+.a-info{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column}
+.a-info .sel{margin-top:auto}
+.a-info .sel small{font-size:13px;color:var(--moss)}
+.a-info .sel h3{font-size:clamp(34px,3.6vw,56px);font-weight:600;letter-spacing:-.05em;line-height:1;margin-top:6px}
+.a-info .sel p{margin:14px 0 0;color:#A6A6A0;max-width:420px}
+.a-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:clamp(20px,3vw,36px);align-content:center}
+.av{position:relative;aspect-ratio:1;border-radius:50%;overflow:hidden;cursor:pointer;border:0;padding:0;background:#222;outline-offset:4px;transition:transform .5s var(--ease)}
+.av img{width:100%;height:100%;object-fit:cover;filter:grayscale(.6);transition:filter .5s,transform .8s var(--ease)}
+.av:hover img,.av[aria-pressed="true"] img{filter:none;transform:scale(1.08)}
+.av[aria-pressed="true"]{box-shadow:0 0 0 3px var(--moss)}
+.av .rb{position:absolute;right:8%;top:8%;width:12px;height:12px;border-radius:50%;background:var(--alarm);box-shadow:0 0 0 3px var(--coal)}
+.av-label{grid-column:1/-1;display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#8C8C86;margin-top:10px}
+.av-label i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--alarm);margin-right:6px;vertical-align:-1px}
+.a-grid .intro{grid-column:span 2;border-radius:999px;background:var(--moss);color:var(--ink);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;aspect-ratio:2/1}
+.a-grid .intro b{font-size:clamp(28px,3vw,44px);font-weight:600;letter-spacing:-.05em;line-height:1}
+.a-grid .intro small{font-size:12px}
+@media (max-width:900px){.animals{grid-template-columns:1fr}.a-info{min-height:300px}}
+@media (max-width:480px){.a-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.a-grid .intro{grid-column:1/-1;aspect-ratio:3/1}}
+
+/* REPORT */
+.report{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--gut)}
+.map{position:relative;min-height:560px;border-radius:var(--r);overflow:hidden;background:var(--stage)}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.pin span{padding:6px 12px;border-radius:999px;background:#fff;font-size:12px;font-weight:600;white-space:nowrap;box-shadow:0 8px 20px -8px rgba(0,0,0,.25)}
+.pin i{width:14px;height:14px;border-radius:50%;background:var(--c,var(--ink));border:3px solid #fff;box-shadow:0 0 0 6px color-mix(in srgb,var(--c,var(--ink)) 22%,transparent)}
+.map .legend{position:absolute;left:18px;bottom:18px;right:18px;display:flex;flex-wrap:wrap;gap:6px}
+.map .legend span{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;font-size:12px}
+.map .legend i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+.map .note{position:absolute;left:18px;top:18px;padding:8px 12px;border-radius:999px;background:#fff;font-size:12px;color:#77776F}
+.form{padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:12px}
+.form h3{font-size:clamp(28px,2.6vw,40px);font-weight:600;letter-spacing:-.045em;line-height:1.02;margin-bottom:10px}
+.form h3 .g{color:#7A7A76}
+.field{display:flex;flex-direction:column;gap:6px;padding:12px 20px;border-radius:24px;background:#222220}
+.field span{font-size:11px;color:#8C8C86}
+.field input{border:0;background:transparent;color:#fff;font:inherit;font-size:16px;padding:2px 0;outline:none}
+.field input::placeholder{color:#5F5F5A}
+.field:focus-within{box-shadow:0 0 0 2px var(--moss)}
+.file{flex-direction:row;align-items:center;justify-content:space-between;cursor:pointer}
+.form .cta{margin-top:8px;align-self:flex-start}
+.ok{margin:0;color:var(--moss);font-size:14px}
+@media (max-width:900px){.report{grid-template-columns:1fr}.map{min-height:420px}}
+
+/* ACT list */
+.act{padding:clamp(28px,4vw,56px)}
+.act-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:30px}
+.step{display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:center;padding:24px 0;border-top:1px solid var(--line)}
+.step .n{font-size:13px;color:#8E8E88}
+.step h3{font-size:clamp(22px,2.4vw,34px);font-weight:600;letter-spacing:-.04em}
+.step p{margin:4px 0 0;color:#6A6A64;font-size:15px}
+.step .cta{min-height:52px;padding-left:20px;font-size:13px}
+.step .cta .arr{width:40px;height:40px}
+@media (max-width:700px){.step{grid-template-columns:1fr}.step .n{display:none}.step .cta{justify-self:start}}
+
+/* FOOTER */
+footer{padding:clamp(28px,4vw,56px) clamp(16px,3vw,40px) 26px;color:#F2F2EE}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px}
+.foot-top h2{max-width:640px}
+.fcols{display:flex;gap:56px;font-size:14px;flex-wrap:wrap}
+.fcols div{display:flex;flex-direction:column;gap:8px}
+.fcols small{color:#77776F;font-size:12px;margin-bottom:4px}
+.fcols a:hover{color:var(--moss)}
+.wordmark{margin-top:60px;font-size:clamp(54px,15.6vw,250px);font-weight:700;letter-spacing:-.07em;line-height:.8;color:#F2F2EE;white-space:nowrap}
+.wordmark .g{color:var(--moss)}
+.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin-top:30px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#77776F}
+
+@media (max-width:600px){
+  :root{--r:28px;--r-sm:20px;--gut:10px}
+  .hero .half{padding:20px}
+  .pad,.act,.fund{padding:26px 20px}
+  .phone,.side .light,.a-info,.form{padding:24px}
+  .wordmark{font-size:14.6vw}
+  .big-count b{font-size:88px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<div class="stack">
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="half left">
+    <div class="topbar">
+      <a href="#top" class="logo" aria-label="Ліс Маневиччини — на початок">
+        <svg width="22" height="28" viewBox="0 0 22 28" fill="none" aria-hidden="true"><path d="M11 2c5 4 8 9 8 13.5A8 8 0 0 1 3 15.5C3 11 6 6 11 2Z" stroke="currentColor" stroke-width="2.2"/><path d="M11 27V9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        ліс·маневичі
+      </a>
+      <nav class="links" aria-label="Розділи"><a href="#counter">Лічильник</a><a href="#problem">Вирубка</a><a href="#trees">Дерева</a><a href="#animals">Тварини</a></nav>
+    </div>
+    <div class="socials" aria-hidden="true"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 4 3 11l6 2 2 6 3-4 5 4 2-15Z"/></svg></span></div>
+    <h1 class="tt" data-tt>Ліс, що <span class="g">дихає</span> <span class="g">за</span> <span class="g">всіх,</span> тихо зникає</h1>
+    <a href="#act" class="cta">Підписати звернення<span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+  </div>
+  <div class="capsule" id="capsule" aria-hidden="true"><img src="img/hero.jpg" alt=""><div class="lbl"><small>Західне Полісся</small><b>Маневичі</b></div></div>
+  <div class="half right">
+    <div class="topbar">
+      <div class="tools"><div class="search">Пошук<span class="icon-btn" style="width:30px;height:30px;background:#fff"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span></div><a href="#report" class="icon-btn" aria-label="Повідомити про вирубку"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></a><a href="#act" class="icon-btn" aria-label="Долучитися"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a></div>
+    </div>
+    <div class="thumbs">
+      <a href="#trees" class="thumb" data-tree="0"><img src="img/pine.jpg" alt="Сосна"><small>Сосна</small><span class="plus" aria-hidden="true">+</span></a>
+      <a href="#trees" class="thumb" data-tree="1"><img src="img/oak.jpg" alt="Дуб"><small>Дуб</small><span class="plus" aria-hidden="true">+</span></a>
+    </div>
+    <span class="mini">82 902 га · 15 лісництв</span>
+    <p>Соснові бори, дубові гаї й болота довкола Маневичів. Щодня план заготівлі забирає з них сотні дерев.</p>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="block dark pad about" id="about">
+  <svg class="mark" viewBox="0 0 22 28" fill="none" aria-hidden="true"><path d="M11 2c5 4 8 9 8 13.5A8 8 0 0 1 3 15.5C3 11 6 6 11 2Z" stroke="#F2F2EE" stroke-width="2"/><path d="M11 27V9" stroke="#F2F2EE" stroke-width="2" stroke-linecap="round"/></svg>
+  <h2 class="tt h2" data-tt>Ліс, що пам'ятає <span class="g">льодовик.</span> <span class="g">І не переживе</span> байдужості.</h2>
+  <p class="lead">Дім для зубра й лося, фільтр для повітря, вода для річок і колодязів.</p>
+  <div class="about-grid">
+    <div class="stats"><div class="stat"><b class="tnum" data-count="82902">82 902</b><small>гектарів лісу</small></div><div class="stat"><b class="tnum" data-count="74" data-suf="%">74%</b><small>хвойні, переважно сосна</small></div></div>
+    <div class="circles"><span><img class="cover" src="img/pineforest.jpg" alt="Сосновий бор" loading="lazy"></span><span class="moss"><svg width="40" height="50" viewBox="0 0 22 28" fill="none" aria-hidden="true"><path d="M11 2c5 4 8 9 8 13.5A8 8 0 0 1 3 15.5C3 11 6 6 11 2Z" stroke="#0C0C0B" stroke-width="1.8"/><path d="M11 27V9" stroke="#0C0C0B" stroke-width="1.8" stroke-linecap="round"/></svg></span><span><img class="cover" src="img/zubr.jpg" alt="Зубр" loading="lazy"></span></div>
+    <div class="stats r"><div class="stat"><b class="tnum" data-count="15">15</b><small>лісництв</small></div><div class="stat"><b class="tnum">4,5%</b><small>під охороною</small></div></div>
+  </div>
+</section>
+
+<!-- COUNTER -->
+<section class="counter" id="counter">
+  <div class="phone" data-rise>
+    <span class="hello">Сьогодні в лісах Маневиччини</span>
+    <span class="name">Зрубано</span>
+    <div class="big-count"><b class="tnum" id="cToday">0</b><div><span>дерев</span><small>з ~530 за день</small></div></div>
+    <div class="next" aria-live="off">
+      <span class="fill" id="nFill"></span>
+      <div><small>Наступне дерево</small><b class="tnum" id="cNext">через 0:00</b></div>
+      <svg class="ring" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="22" fill="none" stroke="#333330" stroke-width="4"/><circle id="nRing" cx="27" cy="27" r="22" fill="none" stroke="#BCC388" stroke-width="4" stroke-linecap="round" stroke-dasharray="138.2" stroke-dashoffset="138.2" transform="rotate(-90 27 27)"/></svg>
+    </div>
+    <div class="list">
+      <h4>З чого складається план</h4>
+      <div class="li"><div><b>Суцільні рубки</b><small>Ліс — до останнього дерева</small></div><span class="badge red">Щодня</span></div>
+      <div class="li"><div><b>Санітарні рубки</b><small>2 560 га на рік</small></div><span class="badge">«Оздоровлення»</span></div>
+      <div class="li done"><div><b>Відновлення</b><small>Сосна й дуб самі майже не повертаються</small></div><span class="badge">Повільно</span></div>
+    </div>
+  </div>
+  <div class="side">
+    <div class="block light" data-rise>
+      <span class="pill-tag" style="align-self:flex-start">Як ми рахуємо</span>
+      <h3 class="tt" style="font-size:clamp(24px,2.4vw,34px);font-weight:500">193 440 м³ <span class="g">— план заготівлі на рік. Це ~530 м³ щодня, по дереву кожні 2,7 хв.</span></h3>
+      <div class="mbars">
+        <div class="mb"><span>Експлуатаційні ліси</span><b>87%</b><i style="--w:87%"></i></div>
+        <div class="mb"><span>Захисні та рекреаційні</span><b>8,5%</b><i style="--w:8.5%"></i></div>
+        <div class="mb"><span>Природоохоронні</span><b>4,5%</b><i style="--w:4.5%"></i></div>
+      </div>
+      <span class="mini" style="color:#8E8E88">Оцінка: стовбур ≈ 1 м³. Джерело: план Маневицького надлісництва, 2025.</span>
+    </div>
+    <div class="block photo-card" data-rise>
+      <img class="cover" src="img/logs.jpg" alt="Штабелі зрізаних колод" loading="lazy" data-par>
+      <div class="float"><div><small>Поки ти на сторінці</small><b class="tnum" id="cHere">0,00 м³ деревини</b></div><a href="#report" class="plus" aria-label="Повідомити про вирубку">+</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="problem">
+    <div class="block photo" data-rise><img class="cover" src="img/felling.jpg" alt="Зрізаний ліс" loading="lazy" data-par></div>
+    <div class="block light txt" data-rise><span class="pill-tag" style="align-self:flex-start">Проблема</span><div><div class="num tnum">87%</div><h3>Майже весь ліс — <span class="g">це сировина. Ліс став конвеєром деревини.</span></h3></div></div>
+    <div class="block light txt" data-rise><span class="pill-tag" style="align-self:flex-start">Рішення</span><h3><span class="g">Розширити заповідні зони,</span> контролювати рубки <span class="g">і чути громаду — нас.</span></h3></div>
+  </div>
+  <div class="caption"><span>Вирубка</span><span>Маневиччина · 2026</span></div>
+</section>
+
+<!-- FUND -->
+<section class="block dark fund">
+  <span class="pill-tag">Структура лісового фонду</span>
+  <h2 class="tt h2" style="margin-top:18px" data-tt>Під охороною <span class="g">лише кожен</span> двадцятий <span class="g">гектар</span></h2>
+  <div class="pillbar" id="pillbar" role="img" aria-label="4,5% природоохоронні, 8,5% захисні, 87% експлуатаційні">
+    <div class="pb-1">4,5%<small>Охорона</small></div>
+    <div class="pb-2">8,5%<small>Захисні</small></div>
+    <div class="pb-3">87%<small>Експлуатаційні — під заготівлю</small></div>
+  </div>
+  <p class="mini">83 тис. га · ДП «Ліси України»</p>
+</section>
+
+<!-- BOGS -->
+<section class="banner" id="bogs">
+  <img class="cover" src="img/swamp.jpg" alt="Поліське болото з очеретом" loading="lazy" data-par>
+  <span class="pill-tag" style="align-self:flex-start;background:rgba(255,255,255,.2);color:#fff">Болота</span>
+  <h2 class="tt h2" style="margin-top:16px" data-tt>Болота зникають <span class="g">мовчки</span></h2>
+  <div class="bubbles">
+    <div class="bub" data-rise><small>01</small><b>Водний режим зламано</b><p>Осушення минулого століття досі відчувають колодязі й малі річки.</p></div>
+    <div class="bub" data-rise><small>02</small><b>Посуха або повінь</b><p>Болото регулює стік. Без нього — одне з двох.</p></div>
+    <div class="bub" data-rise><small>03</small><b>Пороховий погріб</b><p>Осушений торф тліє місяцями й труїть села димом.</p></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="block light why">
+  <svg class="mark" viewBox="0 0 22 28" fill="none" aria-hidden="true"><path d="M11 2c5 4 8 9 8 13.5A8 8 0 0 1 3 15.5C3 11 6 6 11 2Z" stroke="#0C0C0B" stroke-width="2"/><path d="M11 27V9" stroke="#0C0C0B" stroke-width="2" stroke-linecap="round"/></svg>
+  <h2 class="tt h2" data-tt>Що ліс <span class="g">робить</span> <span class="g">для</span> тебе</h2>
+  <p class="lead">Безкоштовно. Щодня. Поки стоїть.</p>
+  <div class="why-stage">
+    <img class="cover" src="img/birch.jpg" alt="Березовий гай" loading="lazy" data-par>
+    <div class="orbs">
+      <div class="orb" data-rise><small>Функція 1</small><b>Чисте повітря</b><p>Поглинає пил і вуглекислий газ, дає кисень.</p></div>
+      <div class="orb" data-rise><small>Функція 2</small><b>Вода в колодязях</b><p>Ліс і болота тримають ґрунтові води та живлять річки.</p></div>
+      <div class="orb" data-rise><small>Функція 3</small><b>Дім для тварин</b><p>Зубр, лось, глухар, видра — живуть тут.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TREES -->
+<section class="block light pad" id="trees">
+  <div class="trees-head">
+    <h2 class="tt h2" data-tt>П'ять дерев, <span class="g">з яких складається</span> Полісся</h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+  </div>
+  <div class="detail">
+    <div class="dimg"><img class="cover" id="dPic" src="img/pine.jpg" alt="Сосна звичайна"><button class="back" id="prev" aria-label="Попереднє дерево"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><span class="count tnum" id="dN">01 / 05</span></div>
+    <div class="dinfo" id="dInfo" role="tabpanel">
+      <span class="cat" id="dCat">Хвойне</span>
+      <h3 id="dName">Сосна звичайна</h3>
+      <span class="lat" id="dLat">Pinus sylvestris</span>
+      <div class="specs"><div class="spec"><small>Висота</small><b id="dH">до 40 м</b></div><div class="spec"><small>Живе</small><b id="dA">300+ років</b></div></div>
+      <p id="dF">—</p>
+      <span class="role" id="dR">—</span>
+      <div class="dnav"><a href="#act" class="cta">Захистити ліс<span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+    </div>
+  </div>
+  <div class="tcards" id="tcards"></div>
+</section>
+
+<!-- ANIMALS -->
+<section class="animals" id="animals">
+  <div class="block dark a-info">
+    <span class="pill-tag" style="align-self:flex-start">Мешканці</span>
+    <h2 class="tt h2" style="margin-top:18px" data-tt>Твої сусіди <span class="g">по лісу</span></h2>
+    <div class="sel" aria-live="polite"><small id="aTag">Червона книга</small><h3 id="aName">Зубр</h3><p id="aText">Найбільший звір Європи, якого колись майже винищили.</p></div>
+  </div>
+  <div class="block dark a-grid" id="agrid">
+    <div class="intro"><b>7 видів</b><small>5 — у Червоній книзі</small></div>
+  </div>
+</section>
+
+<!-- REPORT -->
+<section class="report" id="report">
+  <div class="map" data-rise>
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="#D3D3CE" stroke-width="1.2">
+        <path d="M-20 140C120 90 220 180 360 140S600 60 820 120"/><path d="M-20 220C140 170 240 260 380 220S620 150 820 200"/><path d="M-20 300C160 250 260 340 400 300S640 230 820 280"/><path d="M-20 380C140 340 280 420 420 380S640 310 820 360"/><path d="M-20 460C160 420 300 500 440 460S660 400 820 440"/>
+      </g>
+      <path d="M90 520C200 470 300 430 380 330S560 170 720 80" fill="none" stroke="#BCC388" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+      <ellipse cx="560" cy="430" rx="110" ry="60" fill="#BCC388" opacity=".35"/>
+    </svg>
+    <span class="note">Карта-приклад · точки умовні</span>
+    <div class="pin" style="left:50%;top:52%"><span>Маневичі</span><i></i></div>
+    <div class="pin" style="left:28%;top:34%;--c:var(--alarm)"><span>Троянівка</span><i></i></div>
+    <div class="pin" style="left:72%;top:26%;--c:var(--alarm)"><span>Городок</span><i></i></div>
+    <div class="pin" style="left:38%;top:78%;--c:var(--forest)"><span>Оконськ</span><i></i></div>
+    <div class="legend"><span><i style="--c:var(--alarm)"></i>Вирубка</span><span><i style="--c:var(--forest)"></i>Відновлення</span><span><i style="--c:var(--moss)"></i>Річка Стохід</span></div>
+  </div>
+  <form class="block dark form" id="form" data-rise>
+    <span class="pill-tag" style="align-self:flex-start">Сигнал</span>
+    <h3>Бачив вирубку? <span class="g">Познач її.</span></h3>
+    <label class="field"><span>Де це сталося?</span><input type="text" placeholder="Село, урочище або орієнтир" required></label>
+    <label class="field"><span>Коли?</span><input type="date"></label>
+    <label class="field file"><span id="fn" style="font-size:15px;color:#B7B7B1">Додати фото</span><span class="plus" style="background:#fff;color:#000" aria-hidden="true">+</span><input type="file" id="f3" accept="image/*" hidden></label>
+    <label class="field"><span>Email — не публікується</span><input type="email" placeholder="name@mail.com"></label>
+    <button class="cta light" type="submit">Надіслати сигнал<span class="arr"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+    <p class="ok" id="ok" hidden>Сигнал прийнято. Модератор перевірить його найближчим часом.</p>
+  </form>
+</section>
+
+<!-- ACT -->
+<section class="block light act" id="act">
+  <div class="act-head"><h2 class="tt h2" data-tt>Чотири кроки. <span class="g">Почни з</span> першого.</h2><p class="lead">Не треба бути дорослим чи активістом. Вистачить одного кліку або розмови.</p></div>
+  <div class="step" data-rise><span class="n">01</span><div><h3>Підпиши звернення</h3><p>Вимога посилити контроль за вирубкою на Маневиччині.</p></div><a href="#act" class="cta">Підписати<span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+  <div class="step" data-rise><span class="n">02</span><div><h3>Надішли сигнал</h3><p>Бачив зрізаний ліс чи сліди техніки — познач на карті.</p></div><a href="#report" class="cta moss">На карту<span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+  <div class="step" data-rise><span class="n">03</span><div><h3>Розкажи іншим</h3><p>Друзям, батькам, у школі. Чим більше знають — тим важче ігнорувати.</p></div><button class="cta moss" id="share" type="button"><span id="shareT">Копіювати посилання</span><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div>
+  <div class="step" data-rise><span class="n">04</span><div><h3>Вийди в ліс</h3><p>Прибирання, висадка дерев — спільні виходи з громадою.</p></div><a href="#act" class="cta moss">Найближча акція<span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="block dark">
+  <div class="foot-top">
+    <h2 class="tt h2">Сосні, яку зріжуть завтра, — <span class="g">сто років.</span></h2>
+    <div class="fcols">
+      <div><small>Розділи</small><a href="#counter">Лічильник</a><a href="#problem">Вирубка</a><a href="#trees">Дерева</a><a href="#animals">Тварини</a></div>
+      <div><small>Дія</small><a href="#report">Сигнал</a><a href="#act">Звернення</a></div>
+      <div><small>Контакти</small><span>[EMAIL]</span><span>[INSTAGRAM]</span></div>
+    </div>
+  </div>
+  <div class="wordmark" id="wordmark">ліс<span class="g">·</span>не чекає</div>
+  <div class="fbot"><span>© 2026 · Зроблено для Маневичів</span><span>Версія 3</span><span>51.29°N · 25.53°E</span></div>
+</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const G=window.gsap,ST=window.ScrollTrigger;
+
+  /* counter */
+  const RATE=193440/(365*24*3600),opened=Date.now(),C=2*Math.PI*22;
+  function tick(){const now=new Date(),mid=new Date(now);mid.setHours(0,0,0,0);const m3=(now-mid)/1000*RATE,n=Math.floor(m3),f=m3-n;
+    $('#cToday').textContent=n.toLocaleString('uk-UA');const left=Math.ceil((1-f)/RATE);
+    $('#cNext').textContent='через '+Math.floor(left/60)+':'+String(left%60).padStart(2,'0');
+    $('#nFill').style.width=(f*100).toFixed(1)+'%';$('#nRing').style.strokeDashoffset=(C*(1-f)).toFixed(1);
+    $('#cHere').textContent=((Date.now()-opened)/1000*RATE).toFixed(2).replace('.',',')+' м³ деревини';}
+  tick();setInterval(tick,500);
+
+  /* form / share */
+  $('#f3').addEventListener('change',e=>{$('#fn').textContent=e.target.files[0]?e.target.files[0].name:'Додати фото';});
+  $('#form').addEventListener('submit',e=>{e.preventDefault();$('#ok').hidden=false;e.target.reset();$('#fn').textContent='Додати фото';});
+  $('#share').addEventListener('click',()=>{const t=$('#shareT');try{navigator.clipboard.writeText(location.href).then(()=>t.textContent='Скопійовано',()=>t.textContent='Не вдалося');}catch(e){t.textContent='Не вдалося';}});
+
+  /* trees */
+  const T=[
+    {w:'Сосна',cat:'Хвойне',name:'Сосна звичайна',lat:'Pinus sylvestris',h:'до 40 м',a:'300+ років',img:'img/pine.jpg',f:'Назва pinus — «скеля»: сосна чіпляється корінням навіть за голий камінь. Хвойні — 74% лісів довкола Маневичів.',r:'Дім для глухаря й пугача'},
+    {w:'Дуб',cat:'Листяне',name:'Дуб звичайний',lat:'Quercus robur',h:'до 40 м',a:'500+ років',img:'img/oak.jpg',f:'Доросле дерево щодня витягує з ґрунту сотні літрів води й може стояти століттями.',r:'Жолуді годують кабана й сойку'},
+    {w:'Береза',cat:'Листяне',name:'Береза повисла',lat:'Betula pendula',h:'до 30 м',a:'100+ років',img:'img/birch.jpg',f:'На бересті колись писали листи — записи на ній пережили вісім століть.',r:'Першою заселяє зруби'},
+    {w:'Вільха',cat:'Листяне · біля води',name:'Вільха чорна',lat:'Alnus glutinosa',h:'до 30 м',a:'100+ років',img:'img/swamp.jpg',f:'Росте там, де земля найближча до води, і тримає береги річок від розмивання.',r:'Збагачує ґрунт азотом'},
+    {w:'Осика',cat:'Листяне',name:'Осика',lat:'Populus tremula',h:'до 35 м',a:'~100 років',img:'img/aspen.jpg',f:'Листя тремтить від найменшого вітру — тому її звуть «шумним деревом».',r:'Ласощі для лося й зубра'}
+  ];
+  const tabs=$('#tabs'),tc=$('#tcards');let cur=0;
+  T.forEach((t,i)=>{
+    const b=document.createElement('button');b.className='tab';b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-selected',i?'false':'true');b.textContent=t.w;b.addEventListener('click',()=>show(i));tabs.appendChild(b);
+    const c=document.createElement('button');c.className='tc';c.type='button';c.setAttribute('aria-pressed',i?'false':'true');c.setAttribute('aria-label',t.name);
+    c.innerHTML='<img src="'+t.img+'" alt="" loading="lazy"><div class="r"><div><small>'+t.cat.split(' ')[0]+'</small><b>'+t.w+'</b></div><span class="plus" aria-hidden="true">+</span></div>';c.addEventListener('click',()=>show(i,true));tc.appendChild(c);
+  });
+  function fill(t,i){$('#dPic').src=t.img;$('#dPic').alt=t.name;$('#dN').textContent='0'+(i+1)+' / 05';$('#dCat').textContent=t.cat;$('#dName').textContent=t.name;$('#dLat').textContent=t.lat;$('#dH').textContent=t.h;$('#dA').textContent=t.a;$('#dF').textContent=t.f;$('#dR').textContent=t.r;}
+  fill(T[0],0);
+  function show(i,scroll){i=(i+5)%5;if(scroll&&innerWidth<900)$('.detail').scrollIntoView({behavior:'smooth',block:'start'});if(i===cur)return;cur=i;
+    tabs.querySelectorAll('.tab').forEach((b,j)=>b.setAttribute('aria-selected',j===i?'true':'false'));tc.querySelectorAll('.tc').forEach((b,j)=>b.setAttribute('aria-pressed',j===i?'true':'false'));
+    if(G&&!reduce){G.killTweensOf(['#dPic','#dInfo > *']);G.timeline().to('#dPic',{opacity:0,scale:1.04,duration:.25}).to('#dInfo > *',{opacity:0,y:-8,duration:.2,stagger:.015},'<').add(()=>fill(T[i],i)).fromTo('#dPic',{opacity:0,scale:1.1},{opacity:1,scale:1,duration:.9,ease:'expo.out'}).fromTo('#dInfo > *',{opacity:0,y:14},{opacity:1,y:0,duration:.6,stagger:.04,ease:'expo.out'},'<');}
+    else fill(T[i],i);}
+  $('#prev').addEventListener('click',()=>show(cur-1));
+  $$('.thumb').forEach(a=>a.addEventListener('click',()=>show(+a.dataset.tree)));
+
+  /* animals */
+  const A=[
+    {n:'Зубр',img:'img/zubr.jpg',rb:1,t:'Найбільший звір Європи, якого колись майже винищили.'},
+    {n:'Лось',img:'img/los.jpg',rb:0,t:'Потребує десятків квадратних кілометрів спокійного лісу й боліт.'},
+    {n:'Чорний лелека',img:'img/stork.jpg',rb:1,t:'Біля його гнізд не можна рубати з травня по липень.'},
+    {n:'Глухар',img:'img/gluhar.jpg',rb:1,t:'Місця весняного токування найбільше страждають від рубок.'},
+    {n:'Пугач',img:'img/pugach.jpg',rb:1,t:'Найбільша сова Європи. Живе там, де є старі дерева й тиша.'},
+    {n:'Бобер',img:'img/bober.jpg',rb:0,t:'Його загати тримають воду й рятують болота від висихання.'},
+    {n:'Видра річкова',img:'img/vydra.jpg',rb:1,t:'Мешкає в чистих Оконці, Черевасі й Веселусі.'}
+  ];
+  const ag=$('#agrid');
+  A.forEach((a,i)=>{const b=document.createElement('button');b.className='av';b.type='button';b.setAttribute('aria-pressed',i?'false':'true');b.setAttribute('aria-label',a.n);
+    b.innerHTML='<img src="'+a.img+'" alt="" loading="lazy">'+(a.rb?'<span class="rb" aria-hidden="true"></span>':'');
+    const pick=()=>selA(i);b.addEventListener('click',pick);if(fine)b.addEventListener('mouseenter',pick);ag.appendChild(b);});
+  const lab=document.createElement('div');lab.className='av-label';lab.innerHTML='<span><i></i>Червона книга України</span><span>Наведи або натисни на тварину</span>';ag.appendChild(lab);
+  let ca=0;function selA(i){if(i===ca)return;ca=i;ag.querySelectorAll('.av').forEach((b,j)=>b.setAttribute('aria-pressed',j===i?'true':'false'));const a=A[i];
+    const put=()=>{$('#aTag').textContent=a.rb?'Червона книга':'Мешканець лісу';$('#aName').textContent=a.n;$('#aText').textContent=a.t;};
+    if(G&&!reduce){G.killTweensOf('.sel > *');G.timeline().to('.sel > *',{opacity:0,y:-8,duration:.18}).add(put).fromTo('.sel > *',{opacity:0,y:14},{opacity:1,y:0,duration:.5,stagger:.04,ease:'expo.out'});}else put();}
+
+  if(!G||!ST||reduce)return;
+  G.registerPlugin(ST);ST.config({ignoreMobileResize:true});
+  if(window.Lenis&&fine){const l=new Lenis({duration:1.15,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});l.on('scroll',ST.update);G.ticker.add(t=>l.raf(t*1000));G.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1&&$(id)){e.preventDefault();l.scrollTo(id,{offset:-10});}}));}
+
+  /* two-tone headlines: words fade in from grey and rise */
+  $$('[data-tt]').forEach(el=>{
+    const walk=n=>{Array.from(n.childNodes).forEach(c=>{if(c.nodeType===3){const fr=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){fr.appendChild(document.createTextNode(w));return;}const s=document.createElement('span');s.className='w';s.style.display='inline-block';s.textContent=w;fr.appendChild(s);});c.replaceWith(fr);}else if(c.nodeType===1)walk(c);});};
+    walk(el);
+    G.from(el.querySelectorAll('.w'),{y:'0.5em',opacity:0,filter:'blur(6px)',duration:1,stagger:.05,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+  });
+
+  /* hero */
+  const tl=G.timeline({defaults:{ease:'expo.out'}});
+  tl.from('.hero .half',{scale:.96,opacity:0,duration:1.2,stagger:.1})
+    .from('#capsule',{yPercent:-40,rotate:-40,opacity:0,duration:1.8},'-=.9')
+    .from('.thumb',{x:40,opacity:0,duration:1,stagger:.1},'-=1.4')
+    .from('.hero .cta,.hero .right p,.hero .right .mini',{y:20,opacity:0,duration:1,stagger:.06},'-=1.2');
+  G.to('#capsule',{y:-14,rotate:-11,duration:3.2,ease:'sine.inOut',yoyo:true,repeat:-1,delay:2});
+  G.to('#capsule img',{yPercent:-8,scale:1.12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  G.to('#capsule',{yPercent:30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  ST.batch('[data-rise]',{start:'top 92%',once:true,onEnter:b=>G.fromTo(b,{y:60,opacity:0},{y:0,opacity:1,duration:1.1,stagger:.08,ease:'expo.out',clearProps:'transform,opacity'})});
+  $$('[data-count]').forEach(el=>{const end=+el.dataset.count,suf=el.dataset.suf||'',o={v:0};ST.create({trigger:el,start:'top 92%',once:true,onEnter:()=>G.to(o,{v:end,duration:1.8,ease:'expo.out',onUpdate:()=>{el.textContent=Math.round(o.v).toLocaleString('uk-UA')+suf;}})});});
+  G.from('.circles span',{scale:0,duration:1,stagger:.1,ease:'back.out(1.8)',scrollTrigger:{trigger:'.circles',start:'top 85%'}});
+  G.from('.mbars i',{scaleX:0,transformOrigin:'left',duration:1.4,stagger:.1,ease:'expo.out',scrollTrigger:{trigger:'.mbars',start:'top 88%'}});
+  G.from('#pillbar > div',{xPercent:-30,opacity:0,duration:1.2,stagger:.12,ease:'expo.out',scrollTrigger:{trigger:'#pillbar',start:'top 85%'}});
+  G.from('.av',{scale:.6,opacity:0,duration:.9,stagger:.06,ease:'back.out(1.6)',scrollTrigger:{trigger:'#agrid',start:'top 80%'}});
+  G.from('.pin',{y:-30,opacity:0,duration:.8,stagger:.1,ease:'bounce.out',scrollTrigger:{trigger:'.map',start:'top 75%'}});
+  $$('[data-par]').forEach(im=>G.fromTo(im,{yPercent:-6,scale:1.14},{yPercent:6,scale:1.14,ease:'none',scrollTrigger:{trigger:im.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
+  $$('.block:not(.hero)').forEach(b=>{if(b.closest('.counter,.problem,.report,.animals'))return;G.from(b,{borderRadius:'90px',duration:1.2,ease:'expo.out',scrollTrigger:{trigger:b,start:'top 90%'}});});
+  G.from('#wordmark',{yPercent:70,opacity:0,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'footer',start:'top 80%'}});
+  addEventListener('load',()=>ST.refresh());
+})();
+</script>
+
+</body></html>
